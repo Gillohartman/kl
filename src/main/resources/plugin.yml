@@ -1,0 +1,21 @@
+name: MegaHoppers
+version: '${project.version}'
+main: me.gilles.megahoppers.MegaHoppersPlugin
+api-version: '26.2'
+author: Gilles
+description: 16x hopper throughput with correct furnace handling, plus a redstone-hopper chunkloader.
+commands:
+  megahoppers:
+    description: MegaHoppers admin commands.
+    usage: /megahoppers <reload|list|info>
+    aliases: [mh]
+permissions:
+  megahoppers.admin:
+    description: Allows use of /megahoppers.
+    default: op
+  megahoppers.map:
+    description: Allows opening the chunkloader map by right-clicking with redstone.
+    default: true
+  megahoppers.map.teleport:
+    description: Allows teleporting to a chunkloader from the map.
+    default: op

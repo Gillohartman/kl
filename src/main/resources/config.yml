@@ -1,0 +1,36 @@
+# ===== MegaHoppers configuration =====
+
+hoppers:
+  enabled: true
+  # Items moved per hopper transfer. Vanilla moves 1; 16 = a full 16 items per hopper tick.
+  multiplier: 16
+  # Ticks between each hopper's transfers. Vanilla is 8. Lower = faster (e.g. 2 = very fast).
+  ticks-per-transfer: 8
+  # Keep vanilla furnace slot rules:
+  #  - hopper below a furnace only pulls the FINISHED product (never fuel/input)
+  #  - hopper on TOP feeds the input (smelting) slot, never the output
+  #  - hopper on the SIDE feeds the fuel slot (fuel items only)
+  enforce-furnace-slots: true
+  # Worlds where the booster is disabled (case-insensitive names).
+  disabled-worlds: []
+  # When true, logs every boosted transfer to the console (for troubleshooting).
+  debug: false
+
+chunkloader:
+  enabled: true
+  # Two hoppers facing INTO each other with redstone dust inside load an area of chunks.
+  # Set false to make any facing pair a chunkloader (no redstone needed).
+  require-redstone: true
+  # How often (in ticks) active chunkloaders are re-checked for validity.
+  validate-interval-ticks: 40
+
+  # How many chunks per side to load around the loader. 4 = a 4x4 = 16 chunk area.
+  chunks-per-side: 4
+
+  # Loaded chunks don't tick on their own (Minecraft only ticks near players), so the plugin
+  # simulates it: crops/plants grow and mobs spawn in the loaded area with nobody standing there.
+  tick-plants: true
+  simulate-mobs: true
+  simulate-interval-ticks: 20     # how often the simulation runs (ticks)
+  plant-attempts-per-chunk: 24    # higher = plants grow faster
+  mob-cap-per-chunk: 8            # max monsters simulated per chunk (animals = half)
